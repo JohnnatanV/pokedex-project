@@ -1,25 +1,64 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
+import SearchBar from "./components/SearchBar";
+import Header from "./components/Header";
+import Pokedex from "./components/Pokedex";
 
-function App() {
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMagnifyingGlass,
+  faCaretLeft,
+  faCaretRight,
+  faSpinner,
+  faLessThanEqual,
+} from "@fortawesome/free-solid-svg-icons";
+
+import { getPokemonData, getPokemons } from "./Api";
+
+import "./App.css";
+
+library.add(faMagnifyingGlass, faCaretLeft, faCaretRight, faSpinner);
+
+const App = () => {
+  const [pokemons, setPokemons] = useState([]);
+  const [page, setPage] = useState();
+  const [total, setTotal] = useState();
+  const [loading, setLoading] = useState(true);
+
+  const fetchPokemons = async () => {
+    try {
+      const data = await getPokemons();
+      const promises = data.results.map(
+        async (pokemon) => await getPokemonData(pokemon.url)
+      );
+      const results = await Promise.all(promises);
+      setPokemons(results);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchPokemons();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <SearchBar />
+      <Header />
+      {loading ? (
+        <div>
+          <h4>Buscando Pokemons...</h4>
+          <FontAwesomeIcon icon="spinner" pulse />
+        </div>
+      ) : (
+        <Pokedex pokemons={pokemons} />
+      )}
     </div>
   );
-}
+};
 
 export default App;
