@@ -11,14 +11,18 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Pagination = () => {
+const Pagination = (props) => {
+  const { onLeftClick, onRightClick, page, totalPages } = props;
+
   return (
     <Container>
-      <Button className="arrow">
+      <Button className="arrow" onClick={onLeftClick}>
         <FontAwesomeIcon icon="fa-caret-left" size="lg" />
       </Button>
-      <div>1 de 100</div>
-      <Button className="arrow">
+      <div>
+        {page} de {totalPages}
+      </div>
+      <Button className="arrow" onClick={onRightClick}>
         <FontAwesomeIcon icon="fa-caret-right" size="lg" />
       </Button>
     </Container>

@@ -1,6 +1,8 @@
+const headUrl = "https://pokeapi.co/api/v2/";
+
 export const SearchPokemon = async (pokemon) => {
   try {
-    let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+    let url = `${headUrl}pokemon/${pokemon}`;
     const response = await fetch(url);
     const data = response.json();
     return data;
@@ -9,7 +11,7 @@ export const SearchPokemon = async (pokemon) => {
 
 export const getPokemons = async (limit = 9, offset = 0) => {
   try {
-    let url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
+    let url = `${headUrl}pokemon?limit=${limit}&offset=${offset}`;
     const response = await fetch(url);
     const data = response.json();
     return data;
