@@ -23,6 +23,7 @@ const App = () => {
   const [page, setPage] = useState(0);
   const [total, setTotal] = useState();
   const [loading, setLoading] = useState(true);
+  const [findPokemon, setFindPokemon] = useState("");
 
   useEffect(() => {
     const fetchPokemons = async () => {
@@ -47,10 +48,14 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <SearchBar />
+      <SearchBar setFindPokemon={setFindPokemon} />
       <Header page={page} setPage={setPage} total={total} />
 
-      <Pokedex loading={loading} pokemons={pokemons} />
+      <Pokedex
+        loading={loading}
+        pokemons={pokemons}
+        findPokemon={findPokemon}
+      />
     </div>
   );
 };

@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
+import "./Pokemon.css";
+
 const Card = styled.div`
-  width: 80%;
+  width: 300px;
   height: 350px;
   display: flex;
   flex-direction: column;
@@ -19,43 +21,45 @@ const Type = styled.div`
   justify-content: space-evenly;
 `;
 
+const Box = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const TypeBox = styled(Box)`
+  padding: 5px 10px;
+  width: 60px;
+  border: 1.5px solid;
+  border-radius: 15px;
+  text-transform: capitalize;
+  font-weight: 600;
+`;
+
 const PokeImg = styled.img`
   width: 60%;
 `;
 
-const Pokemon = (props) => {
-  const { pokemon } = props;
-
+const Pokemon = ({ pokemon, findPokemon }) => {
   return (
     <Card>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
+      <Box>
         <span style={{ marginRight: "5px" }}>#{pokemon.id}</span>
         <h3 style={{ textTransform: "capitalize" }}>{pokemon.name}</h3>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      </Box>
+      <Box>
         <PokeImg
           src={pokemon.sprites.other["official-artwork"].front_default}
           alt={pokemon.id}
         />
-      </div>
+      </Box>
 
       <Type>
         {pokemon.types.map((element, index) => {
           return (
-            <div className={element.type.name} key={index}>
+            <TypeBox className={element.type.name} key={index}>
               {element.type.name}
-            </div>
+            </TypeBox>
           );
         })}
       </Type>

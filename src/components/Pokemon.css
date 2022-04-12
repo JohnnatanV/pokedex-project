@@ -1,0 +1,115 @@
+:root {
+  /* TYPE */
+  --rock: rgba(148, 81, 81, 0.8);
+  --ghost: rgb(247, 247, 247, 0.8);
+  --electric: rgb(255, 255, 161, 0.8);
+  --bug: rgb(246, 214, 167, 0.8);
+  --poison: rgb(224, 167, 246, 0.8);
+  --normal: rgb(244, 244, 244, 0.8);
+  --flying: rgb(255, 255, 255, 0.8);
+  --fairy: rgba(255, 192, 203, 0.8);
+  --fire: rgb(251, 227, 223, 0.8);
+  --grass: rgb(226, 249, 225, 0.8);
+  --water: rgb(224, 241, 253, 0.8);
+  --ground: rgb(177, 88, 16, 0.8);
+  --psychic: rgb(230, 0, 230, 0.8);
+  --fighting: rgb(255, 62, 62, 0.8);
+  --steel: rgb(192, 192, 192, 0.8);
+  --ice: rgb(173, 216, 230, 0.8);
+  --dragon: rgb(107, 107, 253, 0.8);
+  --dark: rgb(75, 75, 75, 0.8);
+
+  /* BORDER */
+  --rock-line: rgba(148, 81, 81);
+  --ghost-line: rgb(247, 247, 247);
+  --electric-line: rgb(255, 255, 161);
+  --bug-line: rgb(246, 214, 167);
+  --poison-line: rgb(224, 167, 246);
+  --normal-line: rgb(244, 244, 244);
+  --flying-line: rgb(255, 255, 255);
+  --fairy-line: rgba(255, 192, 203, 0.863);
+  --fire-line: rgb(251, 227, 223);
+  --grass-line: rgb(226, 249, 225);
+  --water-line: rgb(224, 241, 253);
+  --ground-line: rgb(177, 88, 16);
+  --psychic-line: rgb(230, 0, 230);
+  --fighting-line: rgb(255, 62, 62);
+  --steel-line: rgb(192, 192, 192);
+  --ice-line: rgb(173, 216, 230);
+  --dragon-line: rgb(107, 107, 253);
+  --dark-line: rgb(75, 75, 75);
+
+  /* inStyle */
+
+  --poke-padding: 5px 10px;
+  --poke-width: 60px;
+  --poke-border: 1px solid black;
+  --poke-border-width: 1.5px;
+  --poke-border-style: solid;
+  --poke-radius: 15px;
+}
+
+.rock {
+  background-color: var(--rock);
+}
+.ghost {
+  background-color: var(--ghost);
+}
+.electric {
+  background-color: var(--electric);
+}
+.bug {
+  background-color: var(--bug);
+}
+.poison {
+  background-color: var(--poison);
+}
+.normal {
+  background-color: var(--normal);
+}
+
+.flying {
+  background-color: var(--flying);
+}
+
+.fairy {
+  background-color: var(--fairy);
+}
+.fire {
+  background-color: var(--fire);
+}
+.grass {
+  width: 65px;
+  padding: 5px 10px;
+  background-color: var(--grass);
+}
+.water {
+  background-color: var(--water);
+}
+
+.ground {
+  background-color: var(--ground);
+}
+
+.psychic {
+  background-color: var(--psychic);
+}
+.fighting {
+  background-color: var(--fighting);
+}
+
+.steel {
+  background-color: var(--steel);
+}
+
+.ice {
+  background-color: var(--ice);
+}
+
+.dragon {
+  background-color: var(--dragon);
+}
+
+.dark {
+  background-color: var(--dark);
+}

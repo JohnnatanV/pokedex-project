@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import pokeball from "../img/pokeball.jpeg";
+import pokeball from "../img/pokeball-main.png";
 
 const Nav = styled.div`
   height: 100px;
